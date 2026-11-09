@@ -1599,6 +1599,17 @@ public class FileUtils {
         return size;
     }
 
+    /**
+     * Counts the size of a directory recursively, in kilobytes.
+     *
+     * @param directory  directory to inspect, must not be <code>null</code>
+     * @return size of directory in kilobytes (see {@link #ONE_KB}), rounded down
+     * @throws NullPointerException if the directory is <code>null</code>
+     */
+    public static long sizeOfDirectoryInKb(File directory) {
+        return sizeOfDirectory(directory) / 1000;
+    }
+
     //-----------------------------------------------------------------------
     /**
      * Tests if the specified <code>File</code> is newer than the reference
