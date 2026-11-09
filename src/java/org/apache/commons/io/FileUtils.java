@@ -238,6 +238,23 @@ public class FileUtils {
         }
     }
 
+    /**
+     * Creates a new empty file, unless the file exists already.
+     * Parent directories are created if they do not exist.
+     *
+     * @param file  the File to create
+     * @return true if this call created the file, false if it existed already
+     * @throws IOException If an I/O problem occurs
+     */
+    public static boolean createIfAbsent(File file) throws IOException {
+        if (file.exists()) {
+            return false;
+        }
+        OutputStream out = openOutputStream(file);
+        IOUtils.closeQuietly(out);
+        return true;
+    }
+
     //-----------------------------------------------------------------------
     /**
      * Converts a Collection containing java.io.File instanced into array
