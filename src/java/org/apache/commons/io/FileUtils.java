@@ -214,6 +214,17 @@ public class FileUtils {
         return displaySize;
     }
 
+    /**
+     * Converts a byte count to whole megabytes, using the same unit as
+     * {@link #byteCountToDisplaySize(long)}.
+     *
+     * @param size  the number of bytes
+     * @return the number of whole megabytes (see {@link #ONE_MB}), rounded down
+     */
+    public static long byteCountToMegabytes(long size) {
+        return size / (ONE_KB * 1000);
+    }
+
     //-----------------------------------------------------------------------
     /**
      * Implements the same behaviour as the "touch" utility on Unix. It creates
